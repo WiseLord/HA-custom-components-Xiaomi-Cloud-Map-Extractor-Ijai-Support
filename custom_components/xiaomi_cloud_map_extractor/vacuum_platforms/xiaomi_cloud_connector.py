@@ -26,6 +26,7 @@ class XiaomiDeviceInfo(NamedTuple):
     name: str
     model: str
     token: str
+    mac: str
     country: str
     home_id: int
     user_id: int
@@ -195,6 +196,7 @@ class XiaomiCloudConnector:
                 name=device["name"],
                 model=device["model"],
                 token=device["token"],
+                mac=device["mac"],
                 country=country,
                 user_id=owner_id,
                 home_id=home_id,
@@ -216,9 +218,9 @@ class XiaomiCloudConnector:
         devices = self.get_devices_iter(country)
         matching_token = filter(lambda device: device.token == token, devices)
         if match := next(matching_token, None):
-            return match.country, match.user_id, match.device_id, match.model
+            return match.country, match.user_id, match.device_id, match.model, match.mac
 
-        return None, None, None, None
+        return None, None, None, None, None
 
     def get_other_info(self, device_id: str, method: str, parameters: dict) -> any:
         url = self.get_api_url('sg') + "/v2/home/rpc/" + device_id
@@ -240,7 +242,7 @@ class XiaomiCloudConnector:
             "userId": str(self._userId),
             "yetAnotherServiceToken": str(self._serviceToken),
             "serviceToken": str(self._serviceToken),
-            "locale": "en_GB",
+            "locale": "en_US",
             "timezone": "GMT+02:00",
             "is_daylight": "1",
             "dst_offset": "3600000",
