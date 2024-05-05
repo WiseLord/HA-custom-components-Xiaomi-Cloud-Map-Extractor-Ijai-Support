@@ -229,7 +229,6 @@ class XiaomiCloudConnector:
         }
         return self.execute_api_call_encrypted(url, params)
 
-
     def execute_api_call_encrypted(self, url: str, params: dict[str, str]) -> any:
         headers = {
             "Accept-Encoding": "identity",
