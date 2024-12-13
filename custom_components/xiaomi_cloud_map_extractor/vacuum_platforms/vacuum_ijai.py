@@ -1,5 +1,5 @@
 
-from vacuum_map_parser_ijai.map_data_parser import IjaiMapDataParser
+from .vacuum_map_parser_ijai.map_data_parser import IjaiMapDataParser
 from miio.miot_device import MiotDevice
 
 from .vacuum_v2 import XiaomiCloudVacuumV2
