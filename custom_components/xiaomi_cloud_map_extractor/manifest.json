@@ -17,7 +17,7 @@
     "vacuum-map-parser-viomi",
     "vacuum-map-parser-roidmi",
     "vacuum-map-parser-dreame",
-    "git+https://github.com/Nicooow/Python-package-vacuum-map-parser-ijai.git@protobuf_parsing"
+    "vacuum-map-parser-ijai @ git+https://github.com/Nicooow/Python-package-vacuum-map-parser-ijai.git@protobuf_parsing"
   ],
   "version": "v3.0.0-beta"
 }
